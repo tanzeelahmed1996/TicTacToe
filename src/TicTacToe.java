@@ -20,7 +20,7 @@ public class TicTacToe {
             System.out.println("Insert your preferred position (1-9): ");
             int playerPosition = sc.nextInt();
 
-            while (playerPositions.contains(playerPosition)||cpuPositions.contains(playerPositions)){
+            while (playerPositions.contains(playerPosition)||cpuPositions.contains(playerPositions)){ // loop checks if player positions are already taken
                 System.out.println("Position taken! Try another position");
                 playerPosition = sc.nextInt();
             }
@@ -52,14 +52,24 @@ public class TicTacToe {
 
     }
 
+    /***
+     * Method to print the board
+     * @param gameBoard
+     */
     public static void printBoard(char [][] gameBoard){
 
         for (int i=0; i<gameBoard.length; i++){
             System.out.print(gameBoard[i]);
             System.out.println();
         }
-    }
+    } // method to print the board
 
+    /***
+     * Method that updates the positions. So can keep track of what positions are filled.
+     * @param gameBoard
+     * @param position
+     * @param user
+     */
     public static void positionOnBoard (char [][] gameBoard, int position, String user){
         char symbol = ' ';
         if (user.equals("p1")){
@@ -103,6 +113,10 @@ public class TicTacToe {
         }
     }
 
+    /***
+     * Method contains the winning conditions and checks who has won.
+     * @return
+     */
     public static String checkWinner (){
 
         List topRow = Arrays.asList(1,2,3);
